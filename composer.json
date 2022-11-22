@@ -1,0 +1,17 @@
+{
+    "name": "ser13/my-blog",
+    "description": "Blog on PHP and MySQL",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Sergey Chaikovskiy",
+            "email": "ser1372@ukr.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.6",
+        "twig/twig": "^3.4"
+    }
+}
