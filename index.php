@@ -11,6 +11,20 @@ require __DIR__ . '/vendor/autoload.php';
 $loader = new FilesystemLoader('templates');
 $view = new Environment($loader);
 
+$config = include 'config/database.php';
+$dsn      = $config['dsn'];
+$username = $config['username'];
+$password = $config['password'];
+
+try{
+$connection = new PDO($dsn, $username, $password);
+$connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
+} catch (PDOException $exception){
+    echo 'Database error:', $exception-getMessage();
+    die();
+}
+
 // Create app
 $app = AppFactory::create();
 
